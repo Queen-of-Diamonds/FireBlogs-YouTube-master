@@ -1,12 +1,18 @@
-import { initializeApp } from "firebase/app";
+import firebase from "firebase/app";
+import "firebase/firestore";
 
-const firebaseConfig = {
-  apiKey: process.env.VUE_APP_API_KEY, 
+
+var firebaseConfig = {
+  apiKey: "AIzaSyAUpO6_6J1Oel3ZWUxBmRJBgL96FyQk2-w",
   authDomain: "fireblogsyt-64854.firebaseapp.com",
   projectId: "fireblogsyt-64854",
   storageBucket: "fireblogsyt-64854.appspot.com",
-  messagingSenderId: process.env.VUE_APP_SENDER_ID, 
-  appId: "1:606661516190:web:3f01419dc3a413e0ba548f",
+  messagingSenderId: "606661516190",
+  appId: "1:606661516190:web:3f01419dc3a413e0ba548f"
 };
 
-const app = initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+
+export { timestamp };
+export default firebaseApp.firestore();
