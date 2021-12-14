@@ -43,5 +43,44 @@ export default {
 </script>
 
 <style lang="scss">
+.form-wrap {
+  overflow: hidden;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-self: center;
+  margin: 0 auto;
+  width: 90%;
+  @media (min-width: 900px) {
+    width: 100%;
+  }
 
+  .login-register {
+    margin-bottom: 32px;
+
+    .router-link {
+      color: #000;
+    }
+  }
+
+  form {
+    padding: 0 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    @media (min-width: 900px) {
+      padding: 0 50px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #303030;
+      margin-bottom: 40px;
+    }
+  }
+}
 </style>
