@@ -29,7 +29,7 @@
           <label for="email">Email:</label>
           <input disabled type="text" id="email" v-model="email" />
         </div>
-        <button>Save Changes</button>
+        <button @click="updateProfile">Save Changes</button>
       </div>
     </div>
   </div>
@@ -37,11 +37,56 @@
 
 <script>
 import Modal from "@/components/Modal";
-import AdminIcon from "@/assets/Icons/user-crown-light.svg";
+import adminIcon from "@/assets/Icons/user-crown-light.svg";
 export default {
+  name: "Profile",
   components: {
     Modal,
-    AdminIcon,
+    adminIcon,
+  },
+  data() {
+    return {
+      modalMessage: "Changes were saved!",
+      modalActive: null,
+    };
+  },
+  methods: {
+    updateProfile() {
+        this.$store.dispatch("updateUserSettings");
+        this.modalActive = !this.modalActive;
+    },
+    closeModal() {
+      this.modalActive = !this.modalActive;
+    },
+  },
+  computed: {
+    firstName: {
+      get() {
+        return this.$store.state.profileFirstName;
+      },
+      set(payload) {
+        this.$store.commit("changeFirstName", payload);
+      },
+    },
+    lastName: {
+      get() {
+        return this.$store.state.profileLastName;
+      },
+      set(payload) {
+        this.$store.commit("changeLastName", payload);
+      },
+    },
+    username: {
+      get() {
+        return this.$store.state.profileUsername;
+      },
+      set(payload) {
+        this.$store.commit("changeUsername", payload);
+      },
+    },
+    email() {
+        return this.$store.state.profileEmail;
+    }
   },
 };
 </script>
