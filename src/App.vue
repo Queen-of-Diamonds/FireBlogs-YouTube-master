@@ -80,7 +80,9 @@ export default {
 }
 
 .arrow {
-  margin-left: 8px;width: 12px;height: 12px;path {
+  margin-left: 8px;
+  width: 12px;
+  height: 12px;path {
     fill: #000;
   }
 }
